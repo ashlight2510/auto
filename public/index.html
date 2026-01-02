@@ -10,23 +10,36 @@
   <div class="app">
     <header class="top">
       <div class="brand">⚔️ Emoji Battler</div>
-      <div id="meta" class="meta">—</div>
+      <div id="meta" class="meta">SINGLE</div>
     </header>
 
     <section id="lobby" class="card">
-      <h2>로비</h2>
+      <h2>싱글 플레이</h2>
       <div class="row">
-        <button id="btnCreate">방 만들기</button>
-        <input id="roomCode" placeholder="ROOM CODE" maxlength="4" />
-        <button id="btnJoin">입장</button>
+        <label class="pill">
+          AI 난이도
+          <select id="difficulty">
+            <option value="easy">쉬움</option>
+            <option value="normal" selected>보통</option>
+            <option value="hard">어려움</option>
+          </select>
+        </label>
+        <button id="btnSound" class="ghost">사운드: OFF</button>
+        <div id="record" class="pill">전적: 0승 0패</div>
+        <button id="btnStart">새 게임 시작</button>
+        <div id="runInfo" class="pill">12 라운드 · 약 10분</div>
       </div>
-      <div id="lobbyMsg" class="muted"></div>
+      <div id="lobbyMsg" class="muted">싱글 모드 데모(멀티는 나중에 연동).</div>
     </section>
 
     <section id="game" class="grid hidden">
       <div class="card">
-        <h3>상대</h3>
+        <div class="row space">
+          <h3>상대</h3>
+          <div id="opName" class="pill"></div>
+        </div>
         <div id="opHp" class="pill"></div>
+        <div id="opSynergy" class="muted"></div>
         <div id="opBoard" class="board"></div>
       </div>
 
@@ -37,19 +50,30 @@
           <div id="myGold" class="pill"></div>
           <div id="phase" class="pill"></div>
         </div>
+        <div id="timer" class="pill"></div>
+        <div id="mySynergy" class="muted"></div>
         <div id="myBoard" class="board"></div>
 
         <div class="row space">
           <h3>상점</h3>
-          <button id="btnReroll" class="ghost">리롤(1)</button>
+          <div class="row">
+            <button id="btnReroll" class="ghost">리롤(1)</button>
+            <button id="btnLevel" class="ghost">상점 레벨업</button>
+            <button id="btnSkip" class="ghost">빠른 진행</button>
+          </div>
         </div>
+        <div id="shopLevel" class="pill"></div>
         <div id="shop" class="shop"></div>
         <div id="msg" class="muted"></div>
+
+        <div class="row space" style="margin-top:12px;">
+          <h3>전투 로그</h3>
+        </div>
+        <div id="log" class="log"></div>
       </div>
     </section>
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
   <script src="client.js"></script>
 </body>
 </html>
