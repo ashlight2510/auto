@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Emoji Battler</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">⚔️ Emoji Battler</div>
+      <div id="meta" class="meta">—</div>
+    </header>
+
+    <section id="lobby" class="card">
+      <h2>로비</h2>
+      <div class="row">
+        <button id="btnCreate">방 만들기</button>
+        <input id="roomCode" placeholder="ROOM CODE" maxlength="4" />
+        <button id="btnJoin">입장</button>
+      </div>
+      <div id="lobbyMsg" class="muted"></div>
+    </section>
+
+    <section id="game" class="grid hidden">
+      <div class="card">
+        <h3>상대</h3>
+        <div id="opHp" class="pill"></div>
+        <div id="opBoard" class="board"></div>
+      </div>
+
+      <div class="card">
+        <h3>나</h3>
+        <div class="row">
+          <div id="myHp" class="pill"></div>
+          <div id="myGold" class="pill"></div>
+          <div id="phase" class="pill"></div>
+        </div>
+        <div id="myBoard" class="board"></div>
+
+        <div class="row space">
+          <h3>상점</h3>
+          <button id="btnReroll" class="ghost">리롤(1)</button>
+        </div>
+        <div id="shop" class="shop"></div>
+        <div id="msg" class="muted"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
+
+:root{
+  --bg:#0b1020;
+  --card:#111a33;
+  --muted:#9aa7c7;
+  --text:#e9eeff;
+  --line:rgba(255,255,255,.08);
+  --radius:18px;
+  --accent:#2b5cff;
+}
+*{box-sizing:border-box; font-family:"Space Grotesk", "Segoe UI Emoji", sans-serif;}
+body{
+  margin:0;
+  background:radial-gradient(1200px 700px at 20% 0%, #1a2b5a, var(--bg));
+  color:var(--text);
+}
+.app{max-width:980px; margin:24px auto; padding:0 16px;}
+.top{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;}
+.brand{font-weight:800; letter-spacing:.2px;}
+.meta{color:var(--muted); font-size:14px;}
+.card{
+  background:rgba(17,26,51,.8);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+.grid{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
+.hidden{display:none;}
+.row{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+.space{justify-content:space-between;}
+input{
+  background:#0f1733;
+  border:1px solid var(--line);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:12px;
+  outline:none;
+}
+button{
+  background:var(--accent);
+  border:none;
+  color:white;
+  padding:10px 12px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:700;
+}
+button.ghost{background:transparent; border:1px solid var(--line); color:var(--text);}
+button:disabled{opacity:.4; cursor:not-allowed;}
+.pill{padding:8px 10px; border:1px solid var(--line); border-radius:999px; color:var(--text); font-size:14px;}
+.muted{color:var(--muted); margin-top:10px; min-height:20px;}
+.board{display:grid; grid-template-columns: repeat(5, 1fr); gap:10px; margin-top:10px;}
+.slot{border:1px dashed var(--line); border-radius:14px; min-height:68px; display:flex; align-items:center; justify-content:center; padding:8px;}
+.unit{border:1px solid var(--line); border-radius:14px; padding:10px; text-align:center; background:rgba(255,255,255,.03);}
+.unit .e{font-size:28px;}
+.unit .s{color:var(--muted); font-size:12px; margin-top:6px;}
+.shop{display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top:10px;}
+
+@media (max-width: 720px){
+  .grid{grid-template-columns:1fr;}
+  .board{grid-template-columns: repeat(3, 1fr);}
+}
